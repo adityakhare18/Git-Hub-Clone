@@ -8,10 +8,14 @@ connectToDB();
 
 
 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 
-app.get('/api', (req, res) => {
-    console.log("Hello world");
+
+
+app.get('/', (req, res) => {
+    res.send("Hello world");
 });
 
 
