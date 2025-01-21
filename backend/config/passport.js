@@ -1,8 +1,8 @@
-const LocalStrategy = require('passport-local').Strategy;
-const bcrypt = require('bcrypt');
-const User = require('../models/user.model');
+import LocalStrategy from 'passport-local';
+import bcrypt from 'bcrypt';
+import User from '../models/user.model.js';
 
-module.exports = (passport) => {
+export default (passport) => {
   passport.serializeUser((user, done) => {
     done(null, user.id);
   });

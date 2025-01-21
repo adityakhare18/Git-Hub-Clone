@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from 'mongoose'
 
 const repositorySchema = new mongoose.Schema(
   {
@@ -14,4 +14,5 @@ const repositorySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Repository", repositorySchema);
+const Repository = mongoose.model("Repository", repositorySchema);
+export default Repository

@@ -1,18 +1,18 @@
-const express = require('express');
-const session = require('express-session');
-const passport = require('passport');
-const bcrypt = require('bcrypt');
-const dotenv = require('dotenv');
+import express from 'express';
+import session from 'express-session';
+import passport from 'passport';
+import dotenv from 'dotenv'; // Correct import statement
 dotenv.config();
 
-const connectToDB = require('./config/db');
-const User = require('./models/user.model'); 
-require('./config/passport')(passport); 
+import userRouter from './routes/user.route.js';
+import { connectToDB } from './config/db.js';
 
+// Connect to the database
 connectToDB();
 
-const app = express();
+const app = express(); // Use `app` instead of `router` for the main application
 
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -27,47 +27,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', (req, res) => {
-  res.send('Hello world');
-});
+// Route handling
+app.use('/user', userRouter);
 
-app.post('/signup', async (req, res) => {
-  const { username, fullname, email, password } = req.body;
-
-  try {
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ username, fullname, email, password: hashedPassword });
-    await newUser.save();
-    res.status(201).send('User registered successfully');
-  } catch (err) {
-    res.status(400).send('Error registering user: ' + err.message);
-  }
-});
-
-app.post(
-  '/login',
-  passport.authenticate('local', {
-    successRedirect: '/dashboard',
-    failureRedirect: '/login',
-    failureFlash: false,
-  })
-);
-
-app.get('/dashboard', (req, res) => {
-  if (req.isAuthenticated()) {
-    res.send(`Welcome, ${req.user.username}`);
-  } else {
-    res.redirect('/login');
-  }
-});
-
-app.post('/logout', (req, res) => {
-  req.logout((err) => {
-    if (err) return res.status(500).send('Error logging out');
-    res.send('Logged out successfully');
-  });
-});
-
+// Start server
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });
