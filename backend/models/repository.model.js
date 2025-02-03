@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+const mongoose = require("mongoose");
 
 const repositorySchema = new mongoose.Schema(
   {
@@ -15,4 +15,4 @@ const repositorySchema = new mongoose.Schema(
 );
 
 const Repository = mongoose.model("Repository", repositorySchema);
-export default Repository
+module.exports =  Repository

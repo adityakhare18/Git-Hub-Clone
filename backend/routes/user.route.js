@@ -1,11 +1,11 @@
-import express from 'express'
-import bcrypt from 'bcrypt'
-import dotenv from 'dotenv'
+const express = require('express');
+const bcrypt = require('bcrypt');
+const dotenv = require('dotenv');
 dotenv.config()
 
 
-import User from '../models/user.model.js'
-import passport from '../config/passport.js'
+const User = require('../models/user.model.js');
+const passport = require('../config/passport.js');
 
 const route = express.Router();
 
