@@ -55,7 +55,9 @@ yargs(hideBin(process.argv))
         type:"string",
       });
     },
-    addRepo
+    (argv)=>{
+      addRepo(argv.file);
+    }
   )
   .command(
     "commit <message>",
