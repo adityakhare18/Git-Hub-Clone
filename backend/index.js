@@ -68,7 +68,9 @@ yargs(hideBin(process.argv))
         type:"string",
       });
     },
-    commitRepo
+    (argv)=>{
+      commitRepo(argv.message);
+    }
   )
   .command("push","Push commits to S3", {}, pushRepo)
   .command("pull","Pull commits from S3", {}, pullRepo)
