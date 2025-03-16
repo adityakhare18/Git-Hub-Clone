@@ -1,31 +1,33 @@
 const express = require("express");
 const dotenv = require("dotenv");
-dotenv.config();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const http = require("http");
-const { Server } = require("socket.io");
+// const { Server } = require("socket.io");
+const mainRouter = require("./routes/main.route");
 
 const yargs = require("yargs");
 const { hideBin } = require("yargs/helpers");
 
-const { initRepo } = require("./controllers/init.js");
-const { addRepo } = require("./controllers/add.js");
-const { commitRepo } = require("./controllers/commit.js");
-const { pushRepo } = require("./controllers/push.js");
-const { pullRepo } = require("./controllers/pull.js");
-const { revertRepo } = require("./controllers/revert.js");
+const { initRepo } = require("./controllers/init");
+const { addRepo } = require("./controllers/add");
+const { commitRepo } = require("./controllers/commit");
+const { pushRepo } = require("./controllers/push");
+const { pullRepo } = require("./controllers/pull");
+const { revertRepo } = require("./controllers/revert");
+
+dotenv.config();
 
 yargs(hideBin(process.argv))
-  .command("start", "Start a new server", {}, startServer)
+  .command("start", "Starts a new server", {}, startServer)
   .command("init", "Initialise a new repository", {}, initRepo)
   .command(
     "add <file>",
-    "Add a file to a repository",
+    "Add a file to the repository",
     (yargs) => {
       yargs.positional("file", {
-        describe: "File to add to a staging area",
+        describe: "File to add to the staging area",
         type: "string",
       });
     },
@@ -35,7 +37,7 @@ yargs(hideBin(process.argv))
   )
   .command(
     "commit <message>",
-    "Commit files in the staging area",
+    "Commit the staged files",
     (yargs) => {
       yargs.positional("message", {
         describe: "Commit message",
@@ -53,7 +55,7 @@ yargs(hideBin(process.argv))
     "Revert to a specific commit",
     (yargs) => {
       yargs.positional("commitID", {
-        describe: "Commit ID to revert to",
+        describe: "Comit ID to revert to",
         type: "string",
       });
     },
@@ -71,47 +73,29 @@ function startServer() {
   app.use(bodyParser.json());
   app.use(express.json());
 
-  const mongoURI = process.env.MONGODB_URL;
-  // app.listen(port, () => {
-  //   console.log(`Server is running on port ${port}`);
-  // });
+  const mongoURI = process.env.MONGODB_URI;
 
-  mongoose.connect(mongoURI)
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.log("Unable to connect to Database ",err));
+  mongoose
+    .connect(mongoURI)
+    .then(() => console.log("MongoDB connected!"))
+    .catch((err) => console.error("Unable to connect : ", err));
 
-  app.use(cors({ origin : "*" })); // star means our req can come from anywhere
-  app.get("/", (req, res) => {
-    res.send("Hello World");
-  });
+  app.use(cors({ origin: "*" }));
 
+  app.use("/", mainRouter);
 
   let user = "test";
   const httpServer = http.createServer(app);
-  const io = new Server(httpServer, {
-    cors: {
-      origin: "*",
-      methods: ["GET", "POST"],
-    },
-  });
-
-  io.on("Connection", (socket) => {
-    socket.on("joinRoom",(userId)=>{
-      user = userId;
-      console.log("====");
-      console.log(user);
-      console.log("====");  
-      socket.join(userId)
-    })
-  })
+  
 
   const db = mongoose.connection;
 
   db.once("open", async () => {
     console.log("CRUD operations called");
+    // CRUD operations
   });
 
   httpServer.listen(port, () => {
-    console.log(`Socket is running on port ${port}`);
+    console.log(`Server is running on PORT ${port}`);
   });
 }
