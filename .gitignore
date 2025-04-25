@@ -33,9 +33,8 @@ yarn-error.log*
 ehthumbs.db
 Thumbs.db
 
-# Server specific
-/server/node_modules
-/server/uploads
+# Server specific - exclude entire directory for now
+/server/
 
 # Frontend specific
 /frontend/node_modules
