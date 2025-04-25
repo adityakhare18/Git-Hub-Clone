@@ -1,0 +1,246 @@
+/* Auth Container */
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+/* Auth Header */
+.auth-header {
+  padding: 32px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.auth-logo-link {
+  display: inline-block;
+}
+
+.auth-logo {
+  width: 48px;
+  height: 48px;
+}
+
+/* Auth Content */
+.auth-content {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+}
+
+/* Auth Card */
+.auth-card {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.auth-card-secondary {
+  text-align: center;
+  padding: 16px;
+}
+
+.auth-title {
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 16px;
+  color: #f0f6fc;
+  text-align: center;
+}
+
+/* Auth Form */
+.auth-form {
+  margin-top: 16px;
+}
+
+.auth-form-group {
+  margin-bottom: 16px;
+}
+
+.auth-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #c9d1d9;
+}
+
+.auth-label-with-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 5px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #c9d1d9;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+  height: 32px;
+}
+
+.auth-input:focus {
+  border-color: #58a6ff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3);
+}
+
+.auth-input-hint {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #8b949e;
+}
+
+/* Auth Button */
+.auth-button {
+  display: inline-block;
+  padding: 5px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid;
+  border-radius: 6px;
+  appearance: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.auth-button-primary {
+  color: #ffffff;
+  background-color: #2ea44f;
+  border-color: rgba(240, 246, 252, 0.1);
+}
+
+.auth-button-primary:hover {
+  background-color: #2c974b;
+  border-color: rgba(240, 246, 252, 0.1);
+}
+
+.auth-button-primary:disabled {
+  background-color: #94d3a2;
+  border-color: rgba(240, 246, 252, 0.1);
+  cursor: not-allowed;
+}
+
+.auth-button-full {
+  width: 100%;
+  text-align: center;
+  margin-top: 16px;
+}
+
+/* Auth Link */
+.auth-link {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+/* Auth Text */
+.auth-text {
+  font-size: 14px;
+  color: #c9d1d9;
+  margin: 0;
+}
+
+.auth-terms {
+  font-size: 12px;
+  color: #8b949e;
+  margin-top: 16px;
+  text-align: center;
+}
+
+/* Auth Alert */
+.auth-alert {
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.auth-alert-error {
+  background-color: rgba(248, 81, 73, 0.1);
+  border: 1px solid rgba(248, 81, 73, 0.4);
+}
+
+.auth-alert-success {
+  background-color: rgba(46, 160, 67, 0.1);
+  border: 1px solid rgba(46, 160, 67, 0.4);
+}
+
+.auth-alert-icon {
+  margin-right: 8px;
+  margin-top: 2px;
+  color: #f85149;
+}
+
+.auth-alert-success .auth-alert-icon {
+  color: #2ea043;
+}
+
+.auth-alert-message {
+  font-size: 14px;
+  color: #c9d1d9;
+  flex: 1;
+}
+
+/* Auth Footer */
+.auth-footer {
+  margin-top: 40px;
+}
+
+.auth-footer-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.auth-footer-links li {
+  margin: 0 8px;
+}
+
+.auth-footer-link {
+  font-size: 12px;
+  color: #8b949e;
+  text-decoration: none;
+}
+
+.auth-footer-link:hover {
+  color: #58a6ff;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .auth-content {
+    padding: 0 8px 40px;
+  }
+
+  .auth-card {
+    padding: 16px;
+  }
+}

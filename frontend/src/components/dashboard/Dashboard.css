@@ -1,0 +1,394 @@
+/* Dashboard Container */
+.dashboard-container {
+  display: flex;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  gap: 24px;
+}
+
+/* Dashboard Sidebar */
+.dashboard-sidebar {
+  width: 296px;
+  flex-shrink: 0;
+}
+
+/* Profile Card */
+.profile-card {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.profile-avatar {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+  color: #c9d1d9;
+}
+
+.profile-name {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  color: #f0f6fc;
+}
+
+.profile-username {
+  font-size: 16px;
+  color: #8b949e;
+  margin: 0 0 16px;
+}
+
+.profile-edit-button {
+  width: 100%;
+  padding: 5px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #c9d1d9;
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: background-color 0.2s;
+}
+
+.profile-edit-button:hover {
+  background-color: #30363d;
+  border-color: #8b949e;
+}
+
+.profile-stats {
+  display: flex;
+  gap: 16px;
+}
+
+.profile-stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  color: #8b949e;
+}
+
+.profile-stat svg {
+  color: #8b949e;
+}
+
+/* Dashboard Navigation */
+.dashboard-nav {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.dashboard-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dashboard-nav-item {
+  border-bottom: 1px solid #30363d;
+}
+
+.dashboard-nav-item:last-child {
+  border-bottom: none;
+}
+
+.dashboard-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  color: #c9d1d9;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.dashboard-nav-link:hover {
+  background-color: #30363d;
+}
+
+.dashboard-nav-item.active .dashboard-nav-link {
+  background-color: #0d1117;
+  color: #f0f6fc;
+  font-weight: 600;
+  border-left: 2px solid #f78166;
+}
+
+/* Dashboard Main Content */
+.dashboard-main {
+  flex: 1;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.dashboard-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #f0f6fc;
+  margin: 0;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.dashboard-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #c9d1d9;
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.dashboard-button:hover {
+  background-color: #30363d;
+  border-color: #8b949e;
+}
+
+.dashboard-button-primary {
+  background-color: #238636;
+  border-color: rgba(240, 246, 252, 0.1);
+  color: #ffffff;
+}
+
+.dashboard-button-primary:hover {
+  background-color: #2ea043;
+  border-color: rgba(240, 246, 252, 0.1);
+}
+
+/* Repository List */
+.repository-list {
+  margin-bottom: 32px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #f0f6fc;
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #30363d;
+}
+
+.repository-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-bottom: 1px solid #30363d;
+}
+
+.repository-info {
+  flex: 1;
+}
+
+.repository-name {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.repository-name a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.repository-name a:hover {
+  text-decoration: underline;
+}
+
+.repository-description {
+  font-size: 14px;
+  color: #8b949e;
+  margin: 0 0 8px;
+}
+
+.repository-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12px;
+  color: #8b949e;
+}
+
+.repository-language {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.language-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.repository-stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.repository-updated {
+  font-size: 12px;
+  color: #8b949e;
+}
+
+.repository-actions {
+  display: flex;
+  align-items: flex-start;
+}
+
+.repository-star-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 12px;
+  font-size: 12px;
+  color: #c9d1d9;
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.repository-star-button:hover {
+  background-color: #30363d;
+  border-color: #8b949e;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 64px 0;
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  margin-bottom: 32px;
+}
+
+.empty-state-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #f0f6fc;
+  margin: 0 0 8px;
+}
+
+.empty-state-description {
+  font-size: 16px;
+  color: #8b949e;
+  margin: 0 0 24px;
+}
+
+/* Activity Section */
+.activity-section {
+  margin-bottom: 32px;
+}
+
+.activity-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.activity-item {
+  display: flex;
+  gap: 16px;
+}
+
+.activity-icon {
+  width: 32px;
+  height: 32px;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8b949e;
+}
+
+.activity-content {
+  flex: 1;
+}
+
+.activity-text {
+  font-size: 14px;
+  color: #c9d1d9;
+  margin: 0 0 4px;
+}
+
+.activity-link {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.activity-link:hover {
+  text-decoration: underline;
+}
+
+.activity-time {
+  font-size: 12px;
+  color: #8b949e;
+}
+
+/* Loading and Error States */
+.dashboard-loading,
+.dashboard-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+}
+
+.dashboard-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(201, 209, 217, 0.2);
+  border-top-color: #58a6ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 960px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+  
+  .dashboard-sidebar {
+    width: 100%;
+  }
+}
