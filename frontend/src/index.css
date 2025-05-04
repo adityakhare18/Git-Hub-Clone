@@ -6,7 +6,7 @@
 
   color-scheme: dark;
   color: #c9d1d9;
-  background-color: #0d1117;
+  background-color: #040d21;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -81,7 +81,7 @@ input, select, textarea {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0d1117;
+  background: #040d21;
 }
 
 ::-webkit-scrollbar-thumb {

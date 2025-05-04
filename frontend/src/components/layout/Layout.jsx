@@ -8,6 +8,7 @@ const Layout = ({ children }) => {
   const { currentUser, setCurrentUser } = useAuth();
   const navigate = useNavigate();
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+  const [searchFocused, setSearchFocused] = useState(false);
   const dropdownRef = useRef(null);
 
   const handleLogout = () => {
@@ -19,6 +20,14 @@ const Layout = ({ children }) => {
 
   const toggleProfileDropdown = () => {
     setShowProfileDropdown(!showProfileDropdown);
+  };
+
+  const handleSearchFocus = () => {
+    setSearchFocused(true);
+  };
+
+  const handleSearchBlur = () => {
+    setSearchFocused(false);
   };
 
   // Close dropdown when clicking outside
@@ -57,7 +66,17 @@ const Layout = ({ children }) => {
                 </li>
                 <li className="nav-item dropdown">
                   <button className="nav-link dropdown-toggle">
+                    Resources <span className="dropdown-caret">▼</span>
+                  </button>
+                </li>
+                <li className="nav-item dropdown">
+                  <button className="nav-link dropdown-toggle">
                     Open Source <span className="dropdown-caret">▼</span>
+                  </button>
+                </li>
+                <li className="nav-item dropdown">
+                  <button className="nav-link dropdown-toggle">
+                    Enterprise <span className="dropdown-caret">▼</span>
                   </button>
                 </li>
                 <li className="nav-item">
@@ -72,9 +91,29 @@ const Layout = ({ children }) => {
             </nav>
           </div>
           <div className="header-right">
-            <div className="search-container">
-              <input type="text" className="search-input" placeholder="Search or jump to..." />
+            <div className={`search-container ${searchFocused ? 'focused' : ''}`}>
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Search or jump to..."
+                onFocus={handleSearchFocus}
+                onBlur={handleSearchBlur}
+              />
               <div className="search-slash">/</div>
+              {searchFocused && (
+                <div className="search-dropdown">
+                  <div className="search-dropdown-header">
+                    <span>Search syntax tips</span>
+                  </div>
+                  <div className="search-dropdown-body">
+                    <ul className="search-tips">
+                      <li><code>user:username</code> - Search by user</li>
+                      <li><code>repo:name</code> - Search by repository</li>
+                      <li><code>language:name</code> - Search by language</li>
+                    </ul>
+                  </div>
+                </div>
+              )}
             </div>
             {currentUser ? (
               <div className="user-nav">

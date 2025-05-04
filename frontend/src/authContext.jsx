@@ -12,7 +12,7 @@ export const useAuth=()=>{
 export const AuthProvider=({children})=>{
     const [currentUser,setCurrentUser]=useState(null);
     useEffect(()=>{
-        // check is user os logged In or Not
+        // check if user is logged in or not
         const userId=localStorage.getItem('userId');
         if(userId){
             setCurrentUser(userId);

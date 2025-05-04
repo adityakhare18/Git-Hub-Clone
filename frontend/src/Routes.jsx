@@ -2,7 +2,7 @@ import React from 'react';
 import { useRoutes, Navigate } from 'react-router-dom';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
-import Home from './components/Home';
+import Home from './components/home/Home';
 import Dashboard from './components/dashboard/Dashboard';
 import NewRepository from './components/repository/NewRepository';
 import RepositoryView from './components/repository/RepositoryView';
